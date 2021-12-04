@@ -42,7 +42,7 @@ Company.init(
     operational_hours: {
       type: DataTypes.STRING,
     },
-  }
+  },
   {
     sequelize,
     timestamps: false,

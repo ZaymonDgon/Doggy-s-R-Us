@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "building_name": "DoggysRus",
+        "address": "285 Loggers ln",
+        "city": "Denver",
+        "State": "Colorado",
+        "number_of_employees": 5,
+        "manager_id":1,
+        "operational_hours": "8-5"
+    }
+]

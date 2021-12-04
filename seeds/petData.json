@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Hector",
+    "species": "Border Collie",
+    "breed": "",
+    "sex": "Male",
+    "spayed": true,
+    "weight": 50,
+    "birth_year": 2013,
+    "medication": false
+  },
+  {
+    "id": 2,
+    "name": "KoKo",
+    "species": "st. bernard",
+    "breed": "",
+    "sex": "Female",
+    "spayed": true,
+    "weight": 120,
+    "birth_year": 2016,
+    "medication": false
+  },
+  {
+    "id": 3,
+    "name": "Hector",
+    "species": "golden retriever",
+    "breed": "",
+    "sex": "Female",
+    "spayed": true,
+    "weight": 50,
+    "birth_year": 2013,
+    "medication": false
+  }
+]

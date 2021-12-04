@@ -51,7 +51,7 @@ Pet.init(
         photo: {
             // we'll search some shit later lol
         },
-    }
+    },
     {
         sequelize,
         timestamps: false,
