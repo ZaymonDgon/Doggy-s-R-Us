@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Employee extends Model {}
+class Employee extends Model { }
 
 Employee.init(
     {
@@ -19,7 +19,7 @@ Employee.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        active: {
+        manager_id: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
@@ -30,14 +30,21 @@ Employee.init(
                 key: 'id',
             }
         },
+        company_id: {
+            type: DataTypes.STRING,
+            references: {
+                model: 'company',
+                key: 'id',
+            }
+        }
 
     },
     {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'employee',
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'employee',
     }
 )
 
