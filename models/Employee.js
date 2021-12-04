@@ -31,7 +31,7 @@ Employee.init(
             }
         },
 
-    }
+    },
     {
     sequelize,
     timestamps: false,
