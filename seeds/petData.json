@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "Hector",
     "species": "Border Collie",
     "breed": "",
@@ -11,7 +10,6 @@
     "medication": false
   },
   {
-    "id": 2,
     "name": "KoKo",
     "species": "st. bernard",
     "breed": "",
@@ -22,7 +20,6 @@
     "medication": false
   },
   {
-    "id": 3,
     "name": "Hector",
     "species": "golden retriever",
     "breed": "",

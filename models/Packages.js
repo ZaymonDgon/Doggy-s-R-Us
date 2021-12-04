@@ -5,12 +5,7 @@ class Packages extends Model {}
 
 Packages.init(
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
+       
         packages_price: {
             type: DataTypes.INTEGER,
         },
