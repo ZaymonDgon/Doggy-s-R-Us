@@ -7,6 +7,9 @@ const { Employee } = require("../../models/Employee")
 const { Package } = require("../../models/Package")
 const { Role } = require("../../models/Role")
 
-// landing pages routing 
+// book appointment
 
-// all major gets request handled here
+// cancel appointment
+
+// look at past bookings
+
