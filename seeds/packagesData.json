@@ -1,0 +1,12 @@
+[
+    {
+        "id":1,
+        "package_price": 35,
+        "package_details": "this is the standard grooming. Includes nail trimming and teeth cleaning"
+    },
+    {
+        "id":2,
+        "package_price": 80,
+        "package_details": "This is the upgraded package. We include the standard sevice as well as a bath and trimming"
+    }
+]

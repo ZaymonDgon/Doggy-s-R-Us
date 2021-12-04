@@ -51,6 +51,7 @@ Pet.init(
         photo: {
             // we'll search some shit later lol
         },
+
         customer_id: {
             type: DataTypes.STRING,
             references: {

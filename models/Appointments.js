@@ -45,3 +45,6 @@ Appointments.init(
 )
 
 module.exports = Appointments
+
+class Appointment extends Model {}
+
