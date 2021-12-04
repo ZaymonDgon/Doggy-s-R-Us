@@ -32,12 +32,12 @@ const seedRole =async  () =>{
 }
 const seedDatabase = () => {
  seedUser();
-appointmentsData();
-companyData();
-employeeData();
-packagesData();
-petData();
-roleData();
+ seedAppointments();
+seedCompany();
+seedEmployee();
+seedPackages();
+seedPet();
+seedRole();
 process.exit();
 }
 seedDatabase();
