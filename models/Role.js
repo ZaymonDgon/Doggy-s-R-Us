@@ -5,10 +5,20 @@ class Role extends Model {}
 Role.init(
     {
         id: {
-            type: DataTypes.
-        }
-
-    }
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        salary: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+    },
     {
         sequelize,
         timestamps: false,
