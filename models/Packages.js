@@ -17,6 +17,13 @@ Packages.init(
         packages_detail: {
             type: DataTypes.STRING,
         },
+        app_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: "appointments",
+              key: "id",
+            }
+          },
     },
     {
         sequelize,

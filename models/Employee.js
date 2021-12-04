@@ -36,8 +36,14 @@ Employee.init(
                 model: 'company',
                 key: 'id',
             }
-        }
-
+        },
+        // role_id: {
+        //     type: DataTypes.STRING,
+        //     references: {
+        //         model: 'role',
+        //         key: 'id',
+        //     }
+        // },
     },
     {
         sequelize,
