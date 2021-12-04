@@ -51,13 +51,20 @@ Pet.init(
         photo: {
             // we'll search some shit later lol
         },
-    }
+        customer_id: {
+            type: DataTypes.STRING,
+            references: {
+                model: 'user',
+                key: 'id',
+            }
+        },
+    },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'employee',
+        modelName: 'pet',
     }
 )
 

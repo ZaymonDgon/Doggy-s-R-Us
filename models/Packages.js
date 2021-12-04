@@ -17,17 +17,17 @@ Packages.init(
         packages_detail: {
             type: DataTypes.STRING,
         },
-    }
+    },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'employee',
+        modelName: 'packages',
     }
 )
     
-module.exports = Employee;
+module.exports = Packages;
 
 
 
