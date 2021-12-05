@@ -52,7 +52,7 @@ router.post('/logout', auth, (req, res) => {
 });
 
 // create/signup
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     console.log(req.body)
     try {
         const newUser = await User.create(
@@ -99,7 +99,7 @@ router.post('/update/:id', async (req, res) => {
 });
 
 // delete a user 
-router.delete('/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
       const deleteUser= await User.destroy({
         where: {
