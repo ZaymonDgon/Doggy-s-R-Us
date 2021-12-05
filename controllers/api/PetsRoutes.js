@@ -7,6 +7,10 @@ const { Employee } = require("../../models/Employee")
 const { Package } = require("../../models/Package")
 const { Role } = require("../../models/Role")
 
-// landing pages routing 
+// create a pet for a user
 
-// all major gets request handled here
+// delete pet for user
+
+// update pets for user
+
+// see all pets currently in system 

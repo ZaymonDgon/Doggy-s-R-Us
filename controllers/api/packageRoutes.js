@@ -7,6 +7,11 @@ const { Employee } = require("../../models/Employee")
 const { Package } = require("../../models/Package")
 const { Role } = require("../../models/Role")
 
-// landing pages routing 
+// delete  a package
 
-// all major gets request handled here
+// create a package
+
+// see all pacakges 
+
+// update pacakge
+
