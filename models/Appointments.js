@@ -16,19 +16,19 @@ Appointments.init(
     customer_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
-        key: "id",
+        model: 'user',
+        key: 'id',
       }
     },
     employee_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "employee",
-        key: "id",
+        model: 'employee',
+        key: 'id',
       }
     },
     company_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: 'company',
         key: 'id',
