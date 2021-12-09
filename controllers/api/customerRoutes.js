@@ -1,26 +1,20 @@
 const router = require("express").Router();
-const { Pet } = require("../../models/Pet")
-const { User } = require("../../models/user")
-const {Appointment } = require("../../models/Appointment")
-const { Company } = require("../../models/Company")
-const { Employee } = require("../../models/Employee")
-const { Package } = require("../../models/Package")
-const { Role } = require("../../models/Role")
-const auth = require("../../util/auth")
+const { Pet , Customer, Appointment, Company } = require("../../models")
+//const auth = require("../../util/auth")
 // login in
 router.post('/login', async (req, res) => {
     try {
-        const userNameData = await User.findOne({
+        const customerNameData = await Customer.findOne({
             where: {
                 email: req.body.email,
             }
         })
-        if (!userNameData){
+        if (!customerNameData){
             res.status(404).json({ message: 'No user found with this email!' });
             return;
         }
         
-        const validatePassword = await userNameData.password(req.body.password);
+        const validatePassword = await customerNameData.checkPassword(req.body.password);
 
         if (!validatePassword) {
             res.status(400).json({ message: 'Please enter a valid password' });
@@ -29,10 +23,10 @@ router.post('/login', async (req, res) => {
 
         // need to add session code
          req.session.save(() => {
-            req.session.userId = newUser.id;
-            req.session.userName = newUser.username;
+            req.session.userId = newCustomer.id;
+            req.session.userName = newCustomer.username;
             req.session.loggedIn = true;
-            res.status(200).json(userNameData);
+            res.status(200).json(customerNameData);
         })
          
     }catch (err) {
@@ -41,7 +35,7 @@ router.post('/login', async (req, res) => {
 })
 
 // logout
-router.post('/logout', auth, (req, res) => {
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(()  => {
             res.status(204).end();
@@ -55,7 +49,7 @@ router.post('/logout', auth, (req, res) => {
 router.post('/signup', async (req, res) => {
     console.log(req.body)
     try {
-        const newUser = await User.create(
+        const newCustomer = await Customer.create(
             // username: req.body.username,
             // email: req.body.email,
             // password: req.body.password,
@@ -63,10 +57,10 @@ router.post('/signup', async (req, res) => {
             req.body
         )
         req.session.save(() => {
-            req.session.userId = newUser.id;
-            req.session.userName = newUser.username;
+            req.session.userId = newCustomer.id;
+            req.session.userName = newCustomer.username;
             req.session.loggedIn = true;
-            res.status(200).json(newUser);
+            res.status(200).json(newCustomer);
         })
 
         // need to add session code
@@ -77,46 +71,50 @@ router.post('/signup', async (req, res) => {
 });
 
 // update user profile
-router.post('/update/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
     try {
-      const updateUser= await User.findOne({
+      const updateCustomer= await Customer.findOne({
         where: {
           id: req.params.id
         }
       });
   
-      if (!updateUser) {
+      if (!updateCustomer) {
         res.status(404).json({ message: 'Cannot delete user loser' });
         return;
         }
         // switch case if what you what to update
         // might need a document query selector to get what field we want to update
   
-      res.status(200).json(updateUser);
+      res.status(200).json(updateCustomer);
     } catch (err) {
       res.status(500).json(err);
     }
 });
 
 // delete a user 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
-      const deleteUser= await User.destroy({
+      const deleteCustomer= await Customer.destroy({
         where: {
           id: req.params.id
         }
       });
   
-      if (!deleteUser) {
+      if (!deleteCustomer) {
         res.status(404).json({ message: 'Cannot delete user loser' });
         return;
       }
   
-      res.status(200).json(deleteUser);
+      res.status(200).json(deleteCustomer);
     } catch (err) {
       res.status(500).json(err);
     }
 });
+
+
+module.exports = router
+
 
 // display all users
 

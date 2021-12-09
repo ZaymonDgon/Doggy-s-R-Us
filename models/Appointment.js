@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Appointments extends Model { }
-Appointments.init(
+class Appointment extends Model { }
+Appointment.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -10,9 +10,9 @@ Appointments.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    time: {
-      type: DataTypes.INTEGER,
-    },
+    // time: {
+    //   type: DataTypes.INTEGER,
+    // },
     //-----problem area---------
     // customer_id: {
     //   type: DataTypes.INTEGER,
@@ -22,13 +22,7 @@ Appointments.init(
     //   }
     // },
     //----------fix me----------
-    employee_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'employee',
-        key: 'id',
-      }
-    },
+   
     company_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -42,11 +36,11 @@ Appointments.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'appointments',
+    modelName: 'appointment',
   }
 )
 
-module.exports = Appointments
+module.exports = Appointment
 
 
 

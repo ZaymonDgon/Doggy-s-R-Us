@@ -27,10 +27,6 @@ Company.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    number_of_employees: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     // Manager_id: {
     //   type: DataTypes.STRING,
     //   references: {

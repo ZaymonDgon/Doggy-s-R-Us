@@ -1,10 +1,7 @@
 const Customer =  require('./Customer');
-const Role =  require('./Role');
 const Pet =  require('./Pet');
-const Packages =  require('./Packages');
-const Employee =  require('./Employee');
 const Company =  require('./Company');
-const Appointments =  require('./Appointments');
+const Appointment =  require('./Appointment');
 const { application } = require('express');
 
 
@@ -16,38 +13,15 @@ Pet.belongsTo(Customer, {
     foreignKey: 'customer_id'
 });
 
-// Customer.hasMany(Appointments, {
+// Customer.hasMany(Appointment, {
 //     foreignKey: 'customer_id',
 //     onDelete: 'CASCASDE'
 // });
-// Appointments.belongsTo(Customer, {
+// Appointment.belongsTo(Customer, {
 //   foreignKey: 'customer_id'
 // });
 
-Employee.hasMany(Appointments, {
-  foreignKey: 'employee_id',
-  onDelete: 'CASCADE'
-});
-Appointments.belongsTo(Employee, {
-  foreignKey: 'employee_id'
-});
 
-Appointments.hasOne(Packages, {
-  foreignKey: 'app_id',
-  onDelete: 'CASCADE'
-});
-Packages.belongsTo(Appointments, {
-  foreignKey: 'app_id'
-});
-//---------rip code---------------
-// Company.hasMany(Employee, {
-//   foreignKey: 'company_id',
-//   onDelete: 'CASCADE'
-// });
-// Employee.belongsTo(Company, {
-//   foreignKey: 'company_id'
-// });
-//---------------------------------
 Company.hasMany(Customer, {
   foreignKey: 'company_id',
   onDelete: 'CASCADE'
@@ -58,10 +32,10 @@ Customer.belongsTo(Company, {
 //------------------------------------
 //stick with singular or plural not both
 //------------------------------------
-Company.hasMany(Appointments, {
+Company.hasMany(Appointment, {
   foreignKey: 'company_id'
 })
-Appointments.belongsTo(Company, {
+Appointment.belongsTo(Company, {
   foreignKey: 'company_id'
 })
 
@@ -78,4 +52,4 @@ Appointments.belongsTo(Company, {
 
 
 
-module.exports = { Customer, Role, Pet, Packages, Employee, Company, Appointments};
+module.exports = { Customer, Pet, Company, Appointment};

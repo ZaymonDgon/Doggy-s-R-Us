@@ -1,15 +1,9 @@
 const router = require("express").Router();
-const { Pet } = require("../../models/Pet");
-const { User } = require("../../models/Customer");
-const { Appointment } = require("../../models/Appointment");
-const { Company } = require("../../models/Company");
-const { Employee } = require("../../models/Employee");
-const { Package } = require("../../models/Package");
-const { Role } = require("../../models/Role");
-const { Router } = require("express");
-const withAuth = require('../../util/auth');
+const { Pet , Customer, Appointment, Company } = require("../../models")
+// login in
+//const withAuth = require('../../util/auth');
 // create a pet for a user
-router.post("/createPet",withAuth, async (req, res) => {
+router.post("/:id", async (req, res) => {
   try {
     const petData = await Pet.create({
       ...req.body,
@@ -21,7 +15,7 @@ router.post("/createPet",withAuth, async (req, res) => {
   }
 });
 // delete pet for user
-router.delete("/removePet",withAuth, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const petData = await Pet.destory({
       where: {
@@ -29,20 +23,26 @@ router.delete("/removePet",withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    res.status(200).json(petData)
   } catch (err) {
     res.statusMessage(400).json(err);
   }
 });
 // update pets for user
-router.put("/updatePet", withAuth, async (req, res) => {
-  const petData = await Pet.findByPk({
-    where: {
-      id: req.params.id,
-    },
-  });
+router.put("/:id", async (req, res) => {
+  try {
+    const petData = await Pet.findByPk({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(petData)
+  } catch (err) {
+    res.statusMessage(400).json(err);
+  }
 });
 // see all pets currently in system
-router.get("/allPets", withAuth, async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
         const petData = await Pet.findAll({
             include: {
@@ -50,9 +50,18 @@ router.get("/allPets", withAuth, async (req, res) => {
                 attribute: ['name']
             }
         })
+        res.status(200).json(petData)
     } catch (err) {
         res.status(400).json(err)
         
     }
 });
+
+// router.get('/pets', async (req,res) => {
+//   try{
+//       const petData = await 
+//   }catch (err){
+//       res.status(400).json(err)
+//   }
+// })
 module.exports = router;
