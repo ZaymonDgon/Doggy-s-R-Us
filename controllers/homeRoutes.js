@@ -14,13 +14,7 @@ router.get('/:id', async (req,res) => {
         res.status(400).json(err);
     }
 })
-// router.get('/', async (req,res) => {
-//     try{
-//         const petData = await 
-//     }catch (err){
-//         res.status(400).json(err)
-//     }
-// })
-// all major gets request handled here
-
+router.get('/', async (req,res) => {
+    res.render('homepage')
+})
 module.exports = router;

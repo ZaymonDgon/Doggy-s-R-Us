@@ -6,46 +6,29 @@ const {
   Pet,
 } = require("../models/");
 
-const customerData = require("./customerData.json");
-const appointmentData = require("./appointmentData.json");
-const companyData = require("./companyData.json");
-const petData = require("./petData.json");
-
-const seedCustomer = async () => {
-  await Customer.bulkCreate(customerData);
-};
- const seedAppointment = async () => {
-  await Appointment.bulkCreate(appointmentData);
- };
-const seedCompany = async () => {
-  try{
-    await Company.bulkCreate(companyData);
-  } catch (err){
+const customerData = require("./customerData");
+const appointmentData = require("./appointmentData");
+const companyData = require("./companyData");
+const petData = require("./petData");
+console.log("hi welcome to the mess")
+const seedAll = async () => {
+  try {
+    await sequelize.sync({ force: true });
+    await companyData();//working
+    console.log("Company seeded...")
+    await customerData();//customer works
+    console.log("Customers seeded...")
+    await petData();// working now
+    console.log("Pets seeded...")
+    await appointmentData();//yay it works
+    console.log("Appointments seeded...")
+    process.exit(0);
+  }
+  catch (err) {
     console.log(err)
   }
 };
-const seedPet = async () => {
-  try {
-    await Pet.bulkCreate(petData);
-  } catch (error) {
-    console.log(error)
-  }
-};
-const seedDatabase = async () => {
-  try {
-    await sequelize.sync({ force: true });
-    seedCustomer();
-    //---needs fix-----
-    seedAppointment();
-    //-----------------
-    seedCompany();
-    seedPet();
-    //---needs fix------
-    //------------------
-  } catch (error) {
-    console.log(error)
-  }
-  process.exit();  
-};
+seedAll();
 
-seedDatabase();
+
+

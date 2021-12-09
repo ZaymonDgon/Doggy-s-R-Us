@@ -9,14 +9,15 @@ Company.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      // defaultValue: 1,
+      autoIncrement: false,
     },
     building_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     address: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     city: {

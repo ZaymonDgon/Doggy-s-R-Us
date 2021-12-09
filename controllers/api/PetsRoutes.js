@@ -11,7 +11,7 @@ router.post("/:id", async (req, res) => {
     });
     res.status(200).json(petData)
   } catch (err) {
-    res.statusMessage(400).json(err);
+    res.status(400).json(err);
   }
 });
 // delete pet for user

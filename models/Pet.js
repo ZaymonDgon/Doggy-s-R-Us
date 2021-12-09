@@ -16,7 +16,7 @@ Pet.init(
             allowNull: false,
         },
         breed: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         sex: {
@@ -24,30 +24,30 @@ Pet.init(
             allowNull: false,
         },
         spade: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false,
         },
         weight: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         birth_year: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             // add the date format from sequel
             allowNull: true,
         },
         medication: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false,
         },
-        vet_info: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        color_markings: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
+        // vet_info: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        // color_markings: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true,
+        // },
         // photo: {
         //     // we'll search some shit later lol
         // },

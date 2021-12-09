@@ -33,7 +33,7 @@ Customer.init(
             allowNull: false,
         },
         address: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         city: {
@@ -44,10 +44,10 @@ Customer.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        notifed: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
+        // notifed: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true,
+        // },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
