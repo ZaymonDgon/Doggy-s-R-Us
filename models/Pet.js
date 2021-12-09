@@ -48,14 +48,14 @@ Pet.init(
             type: DataTypes.STRING,
             allowNull: true,
         },
-        photo: {
-            // we'll search some shit later lol
-        },
+        // photo: {
+        //     // we'll search some shit later lol
+        // },
 
         customer_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             references: {
-                model: 'user',
+                model: 'customer',
                 key: 'id',
             }
         },

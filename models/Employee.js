@@ -5,7 +5,12 @@ class Employee extends Model { }
 
 Employee.init(
     {
-       
+       id: {
+           type:DataTypes.INTEGER,
+           allowNull:false,
+           autoIncrement:true,
+           primaryKey:true
+       },
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -19,14 +24,14 @@ Employee.init(
             allowNull: false,
         },
         employee_role: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'role',
                 key: 'id',
             }
         },
         company_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'company',
                 key: 'id',

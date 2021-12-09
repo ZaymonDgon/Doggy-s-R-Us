@@ -13,22 +13,24 @@ Appointments.init(
     time: {
       type: DataTypes.INTEGER,
     },
-    customer_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      }
-    },
+    //-----problem area---------
+    // customer_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'customer',
+    //     key: 'id',
+    //   }
+    // },
+    //----------fix me----------
     employee_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "employee",
-        key: "id",
+        model: 'employee',
+        key: 'id',
       }
     },
     company_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: 'company',
         key: 'id',
