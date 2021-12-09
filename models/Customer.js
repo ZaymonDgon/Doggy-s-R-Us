@@ -2,7 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Customer extends Model { }
+class Customer extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+      }
+ }
 
 Customer.init(
     {
@@ -40,16 +44,16 @@ Customer.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        number_of_employees: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
         notifed: {
             type: DataTypes.STRING,
             allowNull: true,
         },
         password: {
             type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [8],
+              },
         },
         company_id: {
             type: DataTypes.INTEGER,
@@ -61,9 +65,9 @@ Customer.init(
     },
     {
         hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
+            beforeCreate: async (newCustomerData) => {
+                newCustomerData.password = await bcrypt.hash(newCustomerData.password, 10);
+                return newCustomerData;
             },
         },
         sequelize,

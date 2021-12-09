@@ -1,35 +1,27 @@
 const router = require("express").Router();
-const { Pet } = require("../../models/Pet");
-const { User } = require("../../models/user");
-const { Appointment } = require("../../models/Appointment");
-const { Company } = require("../../models/Company");
-const { Employee } = require("../../models/Employee");
-const { Package } = require("../../models/Package");
-const { Role } = require("../../models/Role");
-
+const { Pet , Customer, Appointment, Company } = require("../../models")
+//const auth = require("../../util/auth")
+// login in
 // create a booking
-router.post("/bookings", auth, (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const createAppointment = await User.create({
+    const createAppointment = await Appointment.create({
       // appointment model request code insert here
       ...req.body,
       user_id: req.session.user_id,
     });
+    res.status(200).json(createAppointment);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 // update a specific booking
-router.put("/bookings/:id", async (req, res) => {
+router.put("/:id", async ({ body, params }, res) => {
   try {
-    const appointmentData = await Appointment.update({
-      employe_id: req.params.employee_id ,
-      time:  req.params.time
-       
-    },{
+    const appointmentData = await Appointment.update( body, {
       where: {
-        id: req.params.id,
+        id: params.id,
       }
     })
     res.status(200).json(appointmentData);
@@ -55,7 +47,7 @@ router.put("/bookings/:id", async (req, res) => {
 // - timestamp
 
 // cancel a booking
-router.delete("/bookings/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const deleteApp = await Appointment.destroy({
       where: {
@@ -76,12 +68,8 @@ router.delete("/bookings/:id", async (req, res) => {
 });
 
 // get all bookings
-router.get("/bookings", async (req, res) => {
-  const bookingData = await Appointment.findAll();
-});
-
 // get a specific booking
-router.get("/bookings/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     //
     const bookingData = await Appointment.findByPk({
@@ -95,3 +83,5 @@ router.get("/bookings/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+module.exports = router
