@@ -1,5 +1,4 @@
-const { User, Role, Pet, Packages, Employee, Company, Appointments } = require('../models');
-const User =  require('./User');
+const Customer =  require('./Customer');
 const Role =  require('./Role');
 const Pet =  require('./Pet');
 const Packages =  require('./Packages');
@@ -9,27 +8,30 @@ const Appointments =  require('./Appointments');
 const { application } = require('express');
 
 
-User.hasMany(Pet, {
+Customer.hasMany(Pet, {
   foreignKey: 'customer_id',
   onDelete: 'CASCADE'
 });
-Pet.belongsTo(User, {
+Pet.belongsTo(Customer, {
     foreignKey: 'customer_id'
 });
-User.hasMany(Appointments, {
-    foreignKey: 'customer_id',
-    onDelete: 'CASCASDE'
-});
-Appointments.belongsTo(User, {
-  foreignKey: 'customer_id'
-});
+
+// Customer.hasMany(Appointments, {
+//     foreignKey: 'customer_id',
+//     onDelete: 'CASCASDE'
+// });
+// Appointments.belongsTo(Customer, {
+//   foreignKey: 'customer_id'
+// });
+
 Employee.hasMany(Appointments, {
-  foreignKey: 'app_id',
+  foreignKey: 'employee_id',
   onDelete: 'CASCADE'
 });
 Appointments.belongsTo(Employee, {
-  foreignKey: 'app_id'
+  foreignKey: 'employee_id'
 });
+
 Appointments.hasOne(Packages, {
   foreignKey: 'app_id',
   onDelete: 'CASCADE'
@@ -37,20 +39,32 @@ Appointments.hasOne(Packages, {
 Packages.belongsTo(Appointments, {
   foreignKey: 'app_id'
 });
-Company.hasMany(Employee, {
+//---------rip code---------------
+// Company.hasMany(Employee, {
+//   foreignKey: 'company_id',
+//   onDelete: 'CASCADE'
+// });
+// Employee.belongsTo(Company, {
+//   foreignKey: 'company_id'
+// });
+//---------------------------------
+Company.hasMany(Customer, {
   foreignKey: 'company_id',
   onDelete: 'CASCADE'
 });
-Employee.belongsTo(Company, {
+Customer.belongsTo(Company, {
   foreignKey: 'company_id'
 });
-Company.hasMany(User, {
-  foreignKey: 'company_id',
-  onDelete: 'CASCADE'
-});
-User.belongsTo(Company, {
+//------------------------------------
+//stick with singular or plural not both
+//------------------------------------
+Company.hasMany(Appointments, {
   foreignKey: 'company_id'
-});
+})
+Appointments.belongsTo(Company, {
+  foreignKey: 'company_id'
+})
+
 // Company.hasMany(Pet, {
 //   foreignKey: 'company_id',
 //   onDelete: 'CASCADE'
@@ -64,4 +78,4 @@ User.belongsTo(Company, {
 
 
 
-module.exports = { User, Role, Pet, Packages, Employee, Company, Appointments};
+module.exports = { Customer, Role, Pet, Packages, Employee, Company, Appointments};
