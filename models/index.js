@@ -10,7 +10,8 @@ Customer.hasMany(Pet, {
   onDelete: 'CASCADE'
 });
 Pet.belongsTo(Customer, {
-    foreignKey: 'customer_id'
+    foreignKey: 'customer_id',
+    onDelete:"CASCADE"
 });
 
 // Customer.hasMany(Appointment, {
@@ -27,16 +28,28 @@ Company.hasMany(Customer, {
   onDelete: 'CASCADE'
 });
 Customer.belongsTo(Company, {
-  foreignKey: 'company_id'
+  foreignKey: 'company_id',
+  onDelete: 'CASCADE'
 });
 //------------------------------------
 //stick with singular or plural not both
 //------------------------------------
 Company.hasMany(Appointment, {
-  foreignKey: 'company_id'
+  foreignKey: 'company_id',
+  onDelete: 'CASCADE'
 })
 Appointment.belongsTo(Company, {
-  foreignKey: 'company_id'
+  foreignKey: 'company_id',
+  onDelete: 'CASCADE'
+})
+Customer.hasMany(Appointment, {
+  foreignKey:'id',
+  onDelete: 'CASCADE'
+  
+})
+Appointment.belongsTo(Customer, {
+  foreignKey:'customer_id',
+  onDelete: 'CASCADE'
 })
 
 // Company.hasMany(Pet, {
