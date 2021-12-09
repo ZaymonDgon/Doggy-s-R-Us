@@ -31,24 +31,24 @@ Company.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    Manager_id: {
-      type: DataTypes.STRING,
-      references: {
-          model: 'role',
-          //might change i
-          key: 'id',
-      }
-    },
-    operational_hours: {
-      type: DataTypes.STRING,
-    },
+    // Manager_id: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //       model: 'role',
+    //       //might change i
+    //       key: 'id',
+    //   }
+    // },
+    // operational_hours: {
+    //   type: DataTypes.STRING,
+    // },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'commpany',
+    modelName: 'company',
   }
 )
 

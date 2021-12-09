@@ -1,6 +1,8 @@
+//Do we need, Pei suggested hardcoding this
+
 const router = require("express").Router();
 const { Pet } = require("../../models/Pet")
-const { User } = require("../../models/user")
+const { User } = require("../../models/Customer")
 const {Appointment } = require("../../models/Appointment")
 const { Company } = require("../../models/Company")
 const { Employee } = require("../../models/Employee")
