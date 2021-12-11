@@ -9,12 +9,9 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
-    if (!customerNameData) {
-      res.status(404).json({ message: "No user found with this email!" });
-      return;
-    }
 
-    const validatePassword = await customerNameData.checkPassword(
+  
+    const validatePassword =  customerNameData.checkPassword(
       req.body.password
     );
 
@@ -22,14 +19,18 @@ router.post("/login", async (req, res) => {
       res.status(400).json({ message: "Please enter a valid password" });
       return;
     }
-
+    const customer = customerNameData.get({plain: true})
+    console.log(customer)
+    console.log(req.body)
     // need to add session code
-    req.session.save(() => {
-      req.session.userId = newCustomer.id;
-      req.session.userName = newCustomer.username;
+    req.session.save(()  => {
+      req.session.id = customer.id;
+      req.session.email = customer.email;
+      req.session.first_name = customer.first_name;
       req.session.loggedIn = true;
-      res.status(200).json(customerNameData);
     });
+    res.status(200).json(customer);
+    console.log(req.session)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -57,13 +58,14 @@ router.post("/signup", async (req, res) => {
       // all model prameters goes here
       req.body
     );
+   
     req.session.save(() => {
-      req.session.userId = newCustomer.id;
-      req.session.userName = newCustomer.username;
+      req.session.id = newCustomer.id;
+      req.session.email = newCustomer.email;
+      req.session.first_name = newCustomer.first_name;
       req.session.loggedIn = true;
-      res.status(200).json(newCustomer);
     });
-
+    res.status(200).json(newCustomer);
     // need to add session code
   } catch (err) {
     res.status(400).json(err);

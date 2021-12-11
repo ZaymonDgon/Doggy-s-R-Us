@@ -9,7 +9,7 @@ const customerArray = [
         address:"25660 spruce st",
         city: "Arvada",
         state: "Colorado",
-        password:"DougnutsYum"
+        password:"$2b$10$np5jX7gu8L4j2wsGceszI.Yz9UxV2zkVyGDzFBhvWHcs7a05gSbjW"
     },
     {
         first_name:"Andy",
@@ -19,7 +19,7 @@ const customerArray = [
         address:"235 airplane dr",
         city: "Arvada",
         state: "Colorado",
-        password:"Powerdays"
+        password:"$2b$10$np5jX7gu8L4j2wsGceszI.Yz9UxV2zkVyGDzFBhvWHcs7a05gSbjW"
     },
     {
         first_name:"Susan",
@@ -29,7 +29,7 @@ const customerArray = [
         address:"428 88th st",
         city: "Arvada",
         state: "Colorado",
-        password:"Ilovemydog"
+        password:"$2b$10$np5jX7gu8L4j2wsGceszI.Yz9UxV2zkVyGDzFBhvWHcs7a05gSbjW"
     }
     
 ]
