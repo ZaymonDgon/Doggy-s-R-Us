@@ -31,19 +31,6 @@ Pet.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        birth_year: {
-            type: DataTypes.STRING,
-            // add the date format from sequel
-            allowNull: true,
-        },
-        medication: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },
-        // vet_info: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
         // color_markings: {
         //     type: DataTypes.STRING,
         //     allowNull: true,
