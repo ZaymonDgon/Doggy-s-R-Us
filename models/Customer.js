@@ -1,12 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 class Customer extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
-      }
- }
+    }
+}
 
 Customer.init(
     {
@@ -24,43 +24,36 @@ Customer.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        phone_number: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // phone_number: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
+            }
         },
-        address: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        city: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        state: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        // notifed: {
+        // address: {
         //     type: DataTypes.STRING,
-        //     allowNull: true,
+        //     allowNull: false,
+        // },
+        // city: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        // state: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
         // },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [8],
-              },
-        },
-        company_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'company',
-                key: 'id',
-            }
+            },
         },
     },
     {
@@ -69,13 +62,18 @@ Customer.init(
                 newCustomerData.password = await bcrypt.hash(newCustomerData.password, 10);
                 return newCustomerData;
             },
-        },
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'customer',
-    }
+            beforeUpdate: async (updatedCustomerData) => {
+                if (updatedCustomerData.password) {
+                    updatedCustomerData.password = await bcrypt.hash(updatedCustomerData.password, 10);
+                }
+                return updatedCustomerData;
+            }},
+            sequelize,
+            timestamps: false,
+            freezeTableName: true,
+            underscored: true,
+            modelName: 'customer',
+        }
 )
 
 

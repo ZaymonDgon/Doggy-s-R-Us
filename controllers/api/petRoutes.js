@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { Pet, Customer, Appointment, Company } = require("../../models");
+const { Pet } = require("../../models");
 // login in
 //const withAuth = require('../../util/auth');
 // create a pet for a user
-router.post("/:id", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const petData = await Pet.create({
       ...req.body,
