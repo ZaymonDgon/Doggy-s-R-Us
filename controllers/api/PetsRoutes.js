@@ -15,7 +15,7 @@ router.post("/:id", async (req, res) => {
   }
 });
 // delete pet for user
-router.delete("/:id", async (req,res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const petData = await Pet.destory({
       where: {
@@ -23,6 +23,7 @@ router.delete("/:id", async (req,res) => {
         // user_id: req.session.user_id,
       },
     });
+    console.log(petData)
     if (!petData) {
       res.status(404).json({ message: "Cannot delete pet loser" });
       return;
@@ -32,30 +33,47 @@ router.delete("/:id", async (req,res) => {
     res.status(400).json(err);
   }
 });
+//NEED TO PASS UPDATED PARAMS
 // update pets for user
 router.put("/:id", async (req, res) => {
   try {
-    const petData = await Pet.findByPk({
-      where: {
-        id: req.params.id,
-      },
-    });
+    // await Pet.findByPk({
+    //   where: {
+    //     id: req.params.id,
+    //   }
+    // });
+    console.log(req.body);
+    const petData = await Pet.update(
+      { ...req.body },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    // .catch((err) => {
+    //   console.log(err)
+    // })
+
+    //test
+    console.log(petData);
     res.status(200).json(petData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 // see all pets currently in system
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const petData = await Pet.findAll({
-      include: {
-        model: "pets",
-        attribute: ["name"],
-      },
+      // include: {
+      //   model: Pet,
+      //   attribute: ["name"],
+      // },
     });
     res.status(200).json(petData);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

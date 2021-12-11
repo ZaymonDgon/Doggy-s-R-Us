@@ -55,7 +55,8 @@ router.delete("/:id", async (req, res) => {
         // user_id: req.session.user_id,
       },
     });
-    res.statusMessage('Deleted Booking')
+    console.log(deleteApp)
+  // console.log('Deleted Booking')
 
     if (!deleteApp) {
       res.status(404).json({ message: "Cannot delete appointment loser" });
