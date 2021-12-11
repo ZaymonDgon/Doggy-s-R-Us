@@ -100,4 +100,11 @@ router.get('/login', async (req, res) => {
 res.render('signUp');
   
 });
+router.get('/signup', async (req, res) => {
+
+
+res.render('signUp');
+  
+});
+
 module.exports = router;

@@ -1,1 +1,186 @@
 {{!-- include  both the pet and user html so that we dont have mmultiple of the hadle bars that basically od the same sign up "idea???" --}}
+
+    <main  class=" has-background-grey-light">
+
+      <header class="has-text-centered block">
+        <h1 class="title is-1 ">Doggys R Us</h1>
+        <h2 class="title is 3">Sign-Up</h2>
+      </header>
+      <form class="columns signUp-form">
+        <div class="column">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Your Info</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input id="first" class="input" type="text" placeholder=" First Name">
+                </p>
+              </div>
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input id="last" class="input" type="text" placeholder="Last Name">
+                </p>
+              </div>
+              <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                  <input id="email" class="input is-success" type="email" placeholder="Email">
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="field is-horizontal">
+            <div class="field-label"></div>
+            <div class="field-body">
+              <div class="field is-expanded">
+                <div class="field has-addons">
+                  <p class="control is-expanded has-icons-left">
+                    <input id="number" class="input" type="tel" placeholder="Your phone number">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Address</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-expanded">
+                  <div class="field">
+                    <p class="control is-expanded has-icons-left">
+                      <input id="addy" class="input" type="text" placeholder="Address">
+                    </p>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"></div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input id="city" class="input" type="text" placeholder="City">
+                </p>
+              </div>
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input id="state" class="input" type="text" placeholder="State">
+                </p>
+              </div>
+              <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                  <input id="zip" class="input is-success" type="text" placeholder="Zip code">
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Password</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-expanded">
+                <div class="field">
+                  <p class="control has-icons-left">
+                    <input id="password" class="input" type="password" placeholder="Password">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Pet Info</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input id="petName" class="input" type="text" placeholder="Name">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                  <input id="breed" class="input is-success" type="text" placeholder="Breed">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label class="label">Sex</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="member">
+                    Male
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="member">
+                    Female
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label class="label">Spayed/Neutered</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="member">
+                    Yes
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="member">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal"></div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input id="weight" class="input" type="text" placeholder="Weight">
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="has-text-centered block box has-background-grey-light">
+            <button class="button is-large is-danger ">Submit</button>
+          </div>
+        </div>
+      </form>
+
+    </main>
+    <script src="../public/js/signup.js"></script>
