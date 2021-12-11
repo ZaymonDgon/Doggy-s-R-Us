@@ -1,9 +1,10 @@
 const router = require("express").Router();
-const petData = require("./petsRoutes")
-const customerData = require("./customerRoutes")
-const bookingsData = require("./bookingRoutes")
-// const sequelize = require('../../config/connection')
-router.use('/pets',petData);
-router.use('/customer', customerData);
-router.use('/bookings', bookingsData);
+const petRoutes = require("./petRoutes");
+const customerRoutes = require("./customerRoutes");
+const appointmentRoutes = require("./appointmentRoutes");
+
+router.use('/pets',petRoutes);
+router.use('/customers', customerRoutes);
+router.use('/appointments', appointmentRoutes);
+
 module.exports = router;

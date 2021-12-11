@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { Pet , Customer, Appointment, Company } = require("../../models")
-//const auth = require("../../util/auth")
+const { Appointment } = require("../../models")
+const auth = require("../../util/auth")
 // login in
 // create a booking
-router.post("/", async (req, res) => {
+router.post('/', auth, async (req, res) => {
   try {
     const createAppointment = await Appointment.create({
       // appointment model request code insert here
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 });
 
 // update a specific booking
-router.put("/:id", async ({ body, params }, res) => {
+router.put('/:id', auth, async ({ body, params }, res) => {
   try {
     const appointmentData = await Appointment.update( body, {
       where: {
@@ -47,18 +47,17 @@ router.put("/:id", async ({ body, params }, res) => {
 // - timestamp
 
 // cancel a booking
-router.delete("/:id", async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const deleteApp = await Appointment.destroy({
+    const deleteAppointment = await Appointment.destroy({
       where: {
         id: req.params.id,
         // user_id: req.session.user_id,
       },
     });
-    res.statusMessage('Deleted Booking')
 
-    if (!deleteApp) {
-      res.status(404).json({ message: "Cannot delete appointment loser" });
+    if (!deleteAppointment) {
+      res.status(404).json({ message: 'Cannot delete appointment loser' });
       return;
     }
 
@@ -70,16 +69,16 @@ router.delete("/:id", async (req, res) => {
 
 // get all bookings
 // get a specific booking
-router.get("/:id", async (req, res) => {
+router.get('/:id', auth, async (req, res) => {
   try {
     //
-    const bookingData = await Appointment.findByPk({
+    const appointmentData = await Appointment.findByPk({
       where: {
         id: req.body.id,
         user_id: req.session.user_id,
       },
     });
-    res.status(200).json(bookingData);
+    res.status(200).json(appointmentData);
   } catch (err) {
     res.status(400).json(err);
   }
