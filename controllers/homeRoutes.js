@@ -97,7 +97,7 @@ res.render('appointment', {
 router.get('/login', async (req, res) => {
 
 
-res.render('signUp');
+res.render('');
   
 });
 router.get('/signup', async (req, res) => {
