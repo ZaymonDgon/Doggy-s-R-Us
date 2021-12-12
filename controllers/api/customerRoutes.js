@@ -3,36 +3,47 @@ const { Pet, Customer, Appointment, Company } = require("../../models");
 //const auth = require("../../util/auth")
 // login in
 router.post("/login", async (req, res) => {
+  console.log(req.body);
   try {
     const customerNameData = await Customer.findOne({
       where: {
         email: req.body.email,
       },
     });
-
-  
-    const validatePassword =  customerNameData.checkPassword(
-      req.body.password
+    if (!customerNameData) {
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again" });
+        return;
+    }
+    console.log("prepassword whoops");
+    const validatePassword = customerNameData.checkPassword(
+      await req.body.password
     );
 
     if (!validatePassword) {
       res.status(400).json({ message: "Please enter a valid password" });
       return;
     }
-    const customer = customerNameData.get({plain: true})
-    console.log(customer)
-    console.log(req.body)
+    console.log("post password shit");
+
+    const customer = customerNameData.get({ plain: true });
+    console.log(customer);
+    console.log(req.body);
     // need to add session code
-    req.session.save(()  => {
+    //THIS IS AREA WHERE WE NEED WORK SOMEWHERE BETWEEN POST PASSWORD SHIT AND SESSION
+    console.log()
+    req.session.save(() => {
       req.session.id = customer.id;
       req.session.email = customer.email;
       req.session.first_name = customer.first_name;
       req.session.loggedIn = true;
     });
     res.status(200).json(customer);
-    console.log(req.session)
+    console.log(req.session);
   } catch (err) {
     res.status(500).json(err);
+    console.log("/api/customer/login POST try catch fail");
   }
 });
 
@@ -58,7 +69,7 @@ router.post("/signup", async (req, res) => {
       // all model prameters goes here
       req.body
     );
-   
+
     req.session.save(() => {
       req.session.id = newCustomer.id;
       // req.session.email = newCustomer.email;
@@ -76,7 +87,7 @@ router.post("/signup", async (req, res) => {
 router.post("/:id", async (req, res) => {
   try {
     const updateCustomer = await Customer.update(
-      {...req.body,},
+      { ...req.body },
       {
         where: {
           id: req.params.id,
