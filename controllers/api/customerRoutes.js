@@ -28,15 +28,15 @@ router.post("/login", async (req, res) => {
     console.log("post password shit");
 
     const customer = customerNameData.get({ plain: true });
-    console.log(customer);
+    // console.log(customer);
     console.log(req.body);
     // need to add session code
     //THIS IS AREA WHERE WE NEED WORK SOMEWHERE BETWEEN POST PASSWORD SHIT AND SESSION
     console.log()
     req.session.save(() => {
       req.session.id = customer.id;
-      req.session.email = customer.email;
-      req.session.first_name = customer.first_name;
+      req.session.email= customer.email;
+      // req.session.first_name = customer.first_name;
       req.session.loggedIn = true;
     });
     res.status(200).json(customer);
