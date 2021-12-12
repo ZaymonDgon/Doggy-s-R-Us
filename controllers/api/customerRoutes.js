@@ -61,8 +61,8 @@ router.post("/signup", async (req, res) => {
    
     req.session.save(() => {
       req.session.id = newCustomer.id;
-      req.session.email = newCustomer.email;
-      req.session.first_name = newCustomer.first_name;
+      // req.session.email = newCustomer.email;
+      // req.session.first_name = newCustomer.first_name;
       req.session.loggedIn = true;
     });
     res.status(200).json(newCustomer);

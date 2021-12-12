@@ -10,7 +10,7 @@ const signupForm = async (e) => {
     const state = document.querySelector('#state').value.trim();
     const zip = document.querySelector('#zip').value.trim();
     const password = document.querySelector('#password').value.trim();
-    const petName = document.querySelector('#petname').value.trim();
+    const petName = document.querySelector('#petName').value.trim();
     const breed = document.querySelector('#breed').value.trim();
     const sex = "male";
     const spayed = true;
@@ -19,7 +19,7 @@ const signupForm = async (e) => {
 
 
     // if (first && last && email && number && address && city && state && zip && password && petName && breed && weight) {
-        const response = await fetch('/api/customer/signup', {
+        const response = await fetch('/api/customer', {
             method: 'POST',
             body: JSON.stringify({
                 first,
@@ -40,10 +40,10 @@ const signupForm = async (e) => {
             }),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log("zayzay", response)
 
         if (response.ok) {
-            document.location.replace('/');
+            console.log(response (err));
+            // document.location.replace('/user');
         } else {
             alert(response.statusText);
         }
@@ -52,4 +52,3 @@ const signupForm = async (e) => {
 document
   .querySelector('.signUp-form')
   .addEventListener('submit', signupForm);
- console.log('hello');
