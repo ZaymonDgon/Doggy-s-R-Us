@@ -28,6 +28,7 @@ router.get("/", async (req, res) => {
   }
 });
 router.get("/customerDashboard", async (req, res) => {
+  console.log(req.session)
   try {
     const findCustomer = await Customer.findOne({
       where: {

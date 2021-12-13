@@ -2,6 +2,7 @@
   //try this
 
 
+
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
@@ -16,15 +17,15 @@
     const password = document.querySelector("#password").value.trim();
     const petName = document.querySelector("#petName").value.trim();
     const breed = document.querySelector("#breed").value.trim();
-    const sex = "male";
-    const spayed = true;
+    // const sex = "male";
+    // const spayed = true;
     const weight = document.querySelector("#weight").value.trim();
-    const medication = true;
+    // const medication = true;
      const customerdata = {
       email: email,
       first_name: first_name,
-      password: password,
       last_name: last_name,
+      password: password,
       number: number,
       address: address,
       city: city,
@@ -34,27 +35,27 @@
       const petData = {
       petName: petName,
       breed: breed,
-      sex: sex,
-      spayed: true,
+      // sex: sex,
+      // spayed: true,
       weight: weight,
-      medication: true,
+      // medication: true,
     }
-
-    console.log(JSON.stringify(customerdata));
-    console.log(customerdata);
-    console.log(petData)
+const customerStr = JSON.stringify(customerdata);
+const petStr= JSON.stringify(petData)
+    console.log(customerStr);
+    console.log(petStr);
     try {
-      fetch("http://localhost:3001/api/customer/signup", {
+      fetch("/api/customer/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(customerdata),
+        body: JSON.stringify(customerdata)
       })
         .then((response) => response.json())
         .then((data) => {
           console.log("Success:", data);
-          window.location.href = `/customer`;
+          window.location.href = `/customerDashboard`;
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -105,7 +106,7 @@
 document
   .querySelector('.signUp-form')
   .addEventListener('submit', signupFormHandler);
-document
-.querySelector('.login-form')
-.addEventListener('submit',loginFormHandler )
+// document
+// .querySelector('.login-form')
+// .addEventListener('submit',loginFormHandler )
 
