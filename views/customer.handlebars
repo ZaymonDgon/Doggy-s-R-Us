@@ -1,12 +1,13 @@
-<h1> hi {{customer.first_name}} {{customer.last_name}}</h1>
-<h1>make appointment</h1>
-<a href="http://localhost:3001/makeAppointment">Click here to make an appointment</a>
-<h1>see bookings</h1>
-{{#each appointment as |appointment|}}
-{{/each}}
-<a href="http://localhost:3001/appointments">Click to edit or delete a booking</a>
+<section class="has-text-centered block">
+    <figure><img src="./images/doggo.png" alt="cute dog icon"></figure>
+</section>
 
-
-
-
-
+<div class="container">
+    <h1 class="title is-2 box"> Hi <Strong>{{first_name}} {{last_name}}</Strong></h1>
+    <h1 class="title is-3">make appointment for your pet?</h1>
+    <a class="title is-4" href="/makeAppointment">Click here to make an appointment</a>
+    <h1 class="title is-3">See all bookings</h1>
+    {{#each appointment as |appointment|}}
+    {{/each}}
+    <a class="title is-4" href="/appointments">Click to edit or delete a booking</a>
+</div>

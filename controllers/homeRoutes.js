@@ -28,6 +28,7 @@ router.get("/", async (req, res) => {
   }
 });
 router.get("/customerDashboard", async (req, res) => {
+  console.log(req.session)
   try {
     const findCustomer = await Customer.findOne({
       where: {
@@ -116,8 +117,23 @@ router.get("/login", async (req, res) => {
 router.get("/signup", async (req, res) => {
   res.render("signUp");
 });
+
 router.get("/thanks", async (req, res) => {
   res.render("thanks");
 });
+
+router.get('/appointments', async (req,res) => {
+  try {
+    const userAppointments = await Customer.findOne( {
+      where: {
+        email:req.session.email,
+      }
+    })
+    res.render('appointments', userAppointments)
+  } 
+  catch (err) {
+    res.status(400).json(err)
+  }
+})
 
 module.exports = router;

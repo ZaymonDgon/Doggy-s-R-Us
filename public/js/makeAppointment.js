@@ -2,18 +2,11 @@
 // const weekday = ["Monday", "Tuesday", "Wednesday","Thursday", "Friday"]
 
 // const timeslotsIndex = 
-console.log("HJELLO")
-var days = {
-    sunday: 1,
-    monday: 2,
-    tuesday: 3,
-    wednesday: 4,
-    thursday: 5,
-    friday: 6,
-    saturday: 7
-}
+
+
 console.log("HJELLO")
 const appointmentSubmit = document.getElementById('appointmentSubmit');
+
 const makeAppointmentFormHandler = async (event) => {
     event.preventDefault();
     const appData = {
@@ -58,6 +51,7 @@ const makeAppointmentFormHandler = async (event) => {
         // }
         
 
+
        
     //         console.log("hahha")
     //     await fetch("/api/bookings/makeAppointment", {
@@ -87,6 +81,31 @@ const makeAppointmentFormHandler = async (event) => {
     } catch (e) {
         console.log("This is a promise catcher")
         console.log(e)
+=======
+    if (smallDog && time ) {
+        // Send a POST request to the API endpoint
+        const response = await fetch('/api/appointment/makeAppointment', {
+            method: 'POST',
+            body: JSON.stringify({ smallDog, time }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+    if (mediumDog ) {
+        // Send a POST request to the API endpoint
+        const response = await fetch('/api/appointment/makeAppointment', {
+            method: 'POST',
+            body: JSON.stringify({ mediumDog, time }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+    if (bigDog ) {
+        // Send a POST request to the API endpoint
+        const response = await fetch('/api/appointment/makeAppointment', {
+            method: 'POST',
+            body: JSON.stringify({ bigDog, time }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
     }
 
 }
