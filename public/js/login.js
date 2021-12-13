@@ -2,8 +2,8 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect values from the login form
-    const email = document.querySelector('#email').value.trim();
-    const password = document.querySelector('#password').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
   const loginBtn = document.getElementById('loginBtn')
   const signupBtn = document.getElementById('signupBtn')
     if (email && password) {

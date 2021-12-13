@@ -27,12 +27,13 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get("/customer", async (req, res) => {
+router.get("/customerDashboard", async (req, res) => {
   try {
     const findCustomer = await Customer.findOne({
       where: {
-        email : req.session.email}, 
-      attributes: { exclude: ["password"] }
+        email: req.session.email,
+      },
+      attributes: { exclude: ["password"] },
     });
     const customer = await findCustomer.get({ plain: true });
     res.render("customer", {
@@ -40,34 +41,30 @@ router.get("/customer", async (req, res) => {
       logged_in: true,
     });
   } catch (error) {
-      console.log(error)
-      console.log("/customerDashboard try catch fail")
+    console.log(error);
+    console.log("/customerDashboard try catch fail");
     res.status(400).json(toString(error));
   }
 });
 
-// router.get('/bookings', async (req, res) => {
-//     // try {
-//     //     const appointmentData = await Appointment.findAll({
-//     //         include: [
-//     //             {
-//     //                 model: Appointment,
-//     //                 attributes: ['first_name'],
-//     //             },
-//     //         ],
-//     //     });
-//     //     const appointments = appointmentData.map((appointment) => appointment.get({ plain: true }));
+router.get("/makeAppointments", async (req, res) => {
+  try {
+    const appointmentData = await Appointment.findAll({
+      include: [{ attributes: ["first_name"] }],
+    });
+    const appointments = appointmentData.map((appointment) =>
+      appointment.get({ plain: true })
+    );
 
-//     res.render('appointment')
-//         // , {
-//         //     appointments,
-//         //     logged_in: req.session.logged_in
-//         // });
-// // }
-//     // catch (err) {
-//     //     res.status(500).json(err);
-//     // }
-// });
+    res.render("makeAppointment"),
+      {
+        appointments,
+        logged_in: req.session.logged_in,
+      };
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // router.get('/', async (req,res) => {
 //     try {
