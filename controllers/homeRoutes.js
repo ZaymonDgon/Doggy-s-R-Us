@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get("/customerDashboard", async (req, res) => {
+router.get("/customer", async (req, res) => {
   try {
     const findCustomer = await Customer.findByPk(req.session.id, {
       attributes: { exclude: ["password"] },
@@ -38,7 +38,7 @@ router.get("/customerDashboard", async (req, res) => {
       ],
     });
     const customer = findCustomer.get({ plain: true });
-    res.render("/customerDashboard", {
+    res.render("/customer", {
       ...customer,
       logged_in: true,
     });
