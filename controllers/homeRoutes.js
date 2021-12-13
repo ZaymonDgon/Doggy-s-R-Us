@@ -37,7 +37,7 @@ router.get("/customerDashboard", async (req, res) => {
     });
     const customer = await findCustomer.get({ plain: true });
     res.render("customer", {
-      ...Customer,
+      ...customer,
       logged_in: true,
     });
   } catch (error) {
@@ -56,7 +56,8 @@ router.get("/makeAppointments", async (req, res) => {
       appointment.get({ plain: true })
     );
 
-    res.render("makeAppointment"),
+    res.render("makeAppointment", appointments,{
+    logged_in: req.session.logged_in,}),
       {
         appointments,
         logged_in: req.session.logged_in,
