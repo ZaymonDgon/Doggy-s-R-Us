@@ -1,15 +1,6 @@
 //This file needs to handle the process of making an appointment with the company. if else loop to get through hardcoded data plus value capture from time and date.
 // const weekday = ["Monday", "Tuesday", "Wednesday","Thursday", "Friday"]
 // const timeslotsIndex = 
-var days = {
-    sunday: 1,
-    monday: 2,
-    tuesday: 3,
-    wednesday: 4,
-    thursday: 5,
-    friday: 6,
-    saturday: 7
-}
 
 const makeAppointmentFormHandler = async (event) => {
     event.preventDefault();
