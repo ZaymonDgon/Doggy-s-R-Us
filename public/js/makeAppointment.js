@@ -22,7 +22,7 @@ const makeAppointmentFormHandler = async (event) => {
 
     if (smallDog && time ) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/bookings/makeAppointment', {
+        const response = await fetch('/api/appointment/makeAppointment', {
             method: 'POST',
             body: JSON.stringify({ smallDog, time }),
             headers: { 'Content-Type': 'application/json' },
@@ -30,7 +30,7 @@ const makeAppointmentFormHandler = async (event) => {
     }
     if (mediumDog ) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/bookings/makeAppointment', {
+        const response = await fetch('/api/appointment/makeAppointment', {
             method: 'POST',
             body: JSON.stringify({ mediumDog, time }),
             headers: { 'Content-Type': 'application/json' },
@@ -38,7 +38,7 @@ const makeAppointmentFormHandler = async (event) => {
     }
     if (bigDog ) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/bookings/makeAppointment', {
+        const response = await fetch('/api/appointment/makeAppointment', {
             method: 'POST',
             body: JSON.stringify({ bigDog, time }),
             headers: { 'Content-Type': 'application/json' },

@@ -116,5 +116,18 @@ router.get("/login", async (req, res) => {
 router.get("/signup", async (req, res) => {
   res.render("signUp");
 });
+router.get('/appointments', async (req,res) => {
+  try {
+    const userAppointments = await Customer.findOne( {
+      where: {
+        email:req.session.email,
+      }
+    })
+    res.render('appointments', userAppointments)
+  } 
+  catch (err) {
+    res.status(400).json(err)
+  }
+})
 
 module.exports = router;

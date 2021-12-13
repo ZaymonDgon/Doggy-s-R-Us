@@ -44,7 +44,7 @@
     console.log(customerdata);
     console.log(petData)
     try {
-      fetch("http://localhost:3001/signup", {
+      fetch("http://localhost:3001/api/customer/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +54,7 @@
         .then((response) => response.json())
         .then((data) => {
           console.log("Success:", data);
-          window.location.href = `/custommer`;
+          window.location.href = `/customer`;
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -65,46 +65,46 @@
     
 };
 
-const loginFormHandler = async (event) => {
-  event.preventDefault();
+// const loginFormHandler = async (event) => {
+//   event.preventDefault();
 
-  // Collect values from the login form
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
-  const customerlogin = {
-    email : email,
-    password : password
-  }
+//   // Collect values from the login form
+//   const email = document.querySelector('#email-login').value.trim();
+//   const password = document.querySelector('#password-login').value.trim();
+//   const customerlogin = {
+//     email : email,
+//     password : password
+//   }
 
-  console.log(JSON.stringify(customerlogin));
-  console.log(customerlogin);
-  try {
-    fetch("/api/customer/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(customerlogin),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-        // window.location.href = '/custommer';
-        document.location.replace('/');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  } catch (err) {
-    console.log(err);
-  }
-};
+//   console.log(JSON.stringify(customerlogin));
+//   console.log(customerlogin);
+//   try {
+//     fetch("/api/customer/login", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(customerlogin),
+//     })
+//       .then((response) => response.json())
+//       .then((data) => {
+//         console.log("Success:", data);
+//         // window.location.href = '/custommer';
+//         document.location.replace('/');
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 
 
 // //-----------documents under plz--------------------------
-// document
-//   .querySelector('.signUp-form')
-//   .addEventListener('submit', signupFormHandler);
+document
+  .querySelector('.signUp-form')
+  .addEventListener('submit', signupFormHandler);
 document
 .querySelector('.login-form')
 .addEventListener('submit',loginFormHandler )

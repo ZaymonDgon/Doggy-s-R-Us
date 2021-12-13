@@ -67,7 +67,7 @@ router.post("/signup", async (req, res) => {
       // email: req.body.email,
       // password: req.body.password,
       // all model prameters goes here
-      req.body
+      ...req.body
     );
 
     req.session.save(() => {
