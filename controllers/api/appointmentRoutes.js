@@ -92,23 +92,22 @@ router.get('/:id', auth, async (req, res) => {
 
 
 
-router.post('/makeAppointment', auth, async (req, res) => {
+router.post('/makeAppointment',  async (req, res) => {
   try {
-    //
-    const appointmentData = await Appointment.findOne({
-      where: {
-        time: req.params.time,
-        // user_id: req.session.user_id,
-      },
-    });
-    if (!appointmentData) {
+    console.log("lololol")
+    // //
+    // const appointmentData = await Appointment.findOne({
+    //   where: {
+    //     time: req.params.time,
+    //     // user_id: req.session.user_id,
+    //   },
+    // });
+  
       const makeApp = await Appointment.create({
         ...req.body
       })
-    }
-    else {
-      console.log("This time is already booked")
-    }
+   
+   
     
     res.status(200).json(makeApp);
     res.render
