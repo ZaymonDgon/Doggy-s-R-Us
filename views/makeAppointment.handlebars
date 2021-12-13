@@ -1,33 +1,41 @@
-    <main>
-        {{!-- <header class="has-text-centered block has-background-grey-light">
-            <h1 class="title is-1 block">Doggys R Us</h1>
-        </header> --}}
+<main>
+  {{!-- <header class="has-text-centered block has-background-grey-light">
+    <h1 class="title is-1 block">Doggys R Us</h1>
+  </header> --}}
 
-        <section class="has-text-centered block">
-                {{!-- <h2 class="title is-2 box">Appointments</h2>? --}}
-                <h3 class="title is-3 box">Packages</h3>
-                <div class="columns block">
-                    <div class="column">
-                      <strong>Bath</strong>
-                      <ul class = "priceCheckOut">
-                          <input type="checkbox" id="smallDog"> <li>small dog = $25</li>
-                          <input type="checkbox" id="mediumDog"><li>medium dog =$35</li>
-                          <input type="checkbox" id="bigDog"><li>large dog = $45-$65</li>
-                      </ul>
-                    </div>
-                    <div class="column">
-                      <strong>Teeth Brushing</strong>
-                      <p>Flat fee of $30</p>
-                    </div>
-                    <div class="column">
-                      <strong>Deluxe</strong>
-                      <p>Combinating of both packages!</p>
-                      <input type="checkbox" id="comboPackage"><p>Based on the size of your doggie + $30</p>
-                    </div>
-                    <button type="submit" id="appointmentSubmit"> Press Me to make Appointment</button>
-                  </div>
-          
-           
-        </section>
-     </main>
-          <script src="./js/makeAppointment.js"></script>
+  <section class="has-text-centered block">
+    {{!-- <h2 class="title is-2 box">Appointments</h2>? --}}
+    <h3 class="title is-3 box">Packages</h3>
+    <div class="columns block">
+      <div class="column">
+        <strong>Bath</strong>
+        <ul>
+          <form>
+            <p>Please select your preferred contact method:</p>
+              <input type="radio" id="smallDog" name="priceCheckOut" value="text">
+              <label for="smallDog">small dog = $2</label>
+              <input type="radio" id="mediumDog" name="priceCheckOut" value="text">
+              <label for="mediumDog">medium dog =$35</label>
+              <input type="radio" id="bigDog" name="priceCheckOut" value="text">
+              <label for="bigDog">large dog = $45-$65</label>
+
+
+          </form>
+        </ul>
+      </div>
+      {{!-- <div class="column">
+        <strong>Teeth Brushing</strong>
+        <p>Flat fee of $30</p>
+      </div>
+      <div class="column">
+        <strong>Deluxe</strong>
+        <p>Combinating of both packages!</p>
+        <input type="checkbox" id="comboPackage">
+        <p>Based on the size of your doggie + $30</p>
+      </div> --}}
+      <button type="submit" id="appointmentSubmit"> Press Me to make Appointment</button>
+    </div>
+
+
+  </section>
+</main>
