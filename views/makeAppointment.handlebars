@@ -4,15 +4,15 @@
         </header> --}}
 
         <section class="has-text-centered block">
-                <h2 class="title is-2 box">Appointments</h2>
+                {{!-- <h2 class="title is-2 box">Appointments</h2>? --}}
                 <h3 class="title is-3 box">Packages</h3>
                 <div class="columns block">
                     <div class="column">
                       <strong>Bath</strong>
                       <ul>
-                          <li>small dog = $25</li>
-                          <li>medium dog =$35</li>
-                          <li>large dog = $45-$65</li>
+                         <input type="checkbox" id="smallDog"> <li>small dog = $25</li>
+                          <input type="checkbox" id="mediumDog"><li>medium dog =$35</li>
+                          <input type="checkbox" id="bigDog"><li>large dog = $45-$65</li>
                       </ul>
                     </div>
                     <div class="column">
@@ -20,9 +20,9 @@
                       <p>Flat fee of $30</p>
                     </div>
                     <div class="column">
-                      <strong>Dulexe</strong>
+                      <strong>Deluxe</strong>
                       <p>Combinating of both packages!</p>
-                      <p>Based on the size of your doggie + $30</p>
+                      <input type="checkbox" id="comboPackage"><p>Based on the size of your doggie + $30</p>
                     </div>
                     <button type="submit" id="appointmentSubmit"> Press Me to make Appointment</button>
                   </div>
