@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get("/customerDashboard", async (req, res) => {
+router.get("/customer", async (req, res) => {
   try {
     const findCustomer = await Customer.findOne({
       where: {
