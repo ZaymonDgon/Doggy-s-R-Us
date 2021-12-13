@@ -19,18 +19,18 @@ Pet.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        sex: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        spade: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },
-        weight: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // sex: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        // spade: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: false,
+        // },
+        // weight: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
         // color_markings: {
         //     type: DataTypes.STRING,
         //     allowNull: true,

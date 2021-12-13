@@ -67,16 +67,17 @@ router.post("/signup", async (req, res) => {
       // email: req.body.email,
       // password: req.body.password,
       // all model prameters goes here
-      ...req.body
+      {...req.body}
     );
-
+console.log(newCustomer,"hi");
     req.session.save(() => {
-      req.session.id = newCustomer.id;
+      // req.session.id = newCustomer.id;
       req.session.email = newCustomer.email;
-      req.session.first_name = newCustomer.first_name;
+      // req.session.first_name = newCustomer.first_name;
       req.session.loggedIn = true;
+      res.status(200).json(newCustomer);
     });
-    res.status(200).json(newCustomer);
+    
     // need to add session code
   } catch (err) {
     res.status(400).json(err);
