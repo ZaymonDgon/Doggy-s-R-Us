@@ -24,10 +24,10 @@ Customer.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        // phone_number: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
+        phone_number: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -36,25 +36,32 @@ Customer.init(
                 isEmail: true
             }
         },
-        // address: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
-        // city: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
-        // state: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        state: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [8],
             },
-        },
+        }
+        // ,
+        // company_id: {
+        //     references:{
+        // model:['company'],
+        // key: 'id'
+        //     } 
+        // }
     },
     {
         hooks: {

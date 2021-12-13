@@ -29,23 +29,20 @@ router.get("/", async (req, res) => {
 });
 router.get("/customerDashboard", async (req, res) => {
   try {
-    const findCustomer = await Customer.findByPk(req.session.id, {
-      attributes: { exclude: ["password"] },
-      include: [
-        {
-          model: Customer
-        },
-      ],
+    const findCustomer = await Customer.findOne({
+      where: {
+        email : req.session.email}, 
+      attributes: { exclude: ["password"] }
     });
-    const customer = findCustomer.get({ plain: true });
-    res.render("/customerDashboard", {
-      ...customer,
+    const customer = await findCustomer.get({ plain: true });
+    res.render("customer", {
+      ...Customer,
       logged_in: true,
     });
   } catch (error) {
       console.log(error)
       console.log("/customerDashboard try catch fail")
-    res.status(400).json(error);
+    res.status(400).json(toString(error));
   }
 });
 

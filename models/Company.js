@@ -27,7 +27,14 @@ Company.init(
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
+    }
+    // customer_id: {
+    //   type: DataTypes.INTEGER,
+    //   references:{
+    //     model: ['customer'],
+    //     key:'id'
+    //   }
+    // }
     // Manager_id: {
     //   type: DataTypes.STRING,
     //   references: {
