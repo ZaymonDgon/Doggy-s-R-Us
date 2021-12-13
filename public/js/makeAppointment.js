@@ -17,8 +17,9 @@ const appointmentSubmit = document.getElementById('appointmentSubmit');
 const makeAppointmentFormHandler = async (event) => {
     event.preventDefault();
     const appData = {
-        time: 4,
-        customer_id : 1
+        time: 13,
+        customer_id: 2,
+        company_id : 1
 }
     try {
         console.log("HJELLO", event)
@@ -36,10 +37,10 @@ const makeAppointmentFormHandler = async (event) => {
         
         // const time = document.getElementById("time")
     
-        if (priceCheckOut && packageCheckOut && time) {
+        // if (priceCheckOut && packageCheckOut && time) {
             // Send a POST request to the API endpoint
            
-            const response = await fetch('/api/bookings', {
+            const response = await fetch('/api/bookings/makeAppointment', {
                 method: 'POST',
                 // body: JSON.stringify({ priceCheckOut, packageCheckOut, time }),
                 body: JSON.stringify(appData),
@@ -54,7 +55,7 @@ const makeAppointmentFormHandler = async (event) => {
             }
     
            
-        }
+        // }
         
 
        

@@ -11,7 +11,7 @@ router.post('/', auth, async (req, res) => {
       user_id: req.session.user_id,
     });
     res.status(200).json(createAppointment);
-    
+
   } catch (err) {
     res.status(400).json(err);
   }
@@ -20,7 +20,7 @@ router.post('/', auth, async (req, res) => {
 // update a specific booking
 router.put('/:id', auth, async ({ body, params }, res) => {
   try {
-    const appointmentData = await Appointment.update( body, {
+    const appointmentData = await Appointment.update(body, {
       where: {
         id: params.id,
       }
@@ -57,7 +57,7 @@ router.delete('/:id', async (req, res) => {
       },
     });
     console.log(deleteApp)
-  // console.log('Deleted Booking')
+    // console.log('Deleted Booking')
 
     if (!deleteAppointment) {
       res.status(404).json({ message: 'Cannot delete appointment loser' });
@@ -92,26 +92,27 @@ router.get('/:id', auth, async (req, res) => {
 
 
 
-router.post('/makeAppointment',  async (req, res) => {
+router.post('/makeAppointment', auth, async (req, res) => {
+  console.log(req.body)
   try {
     console.log("lololol")
-    // //
+    //
     // const appointmentData = await Appointment.findOne({
     //   where: {
-    //     time: req.params.time,
+    //     time: req.body.time,
     //     // user_id: req.session.user_id,
     //   },
     // });
-  
-      const makeApp = await Appointment.create({
-        ...req.body
-      })
-   
-   
-    
+    console.log(req.body)
+    const makeApp = await Appointment.create(
+      req.body)
+
+
+
     res.status(200).json(makeApp);
-    res.render
+
   } catch (err) {
+    console.log(req.body)
     res.status(400).json(err);
   }
 });
