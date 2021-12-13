@@ -13,10 +13,10 @@ var days = {
 
 const makeAppointmentFormHandler = async (event) => {
     event.preventDefault();
-    
-    const smallDog = document.getElementById('smallDog').value.trim();
-    const mediumDog = document.getElementById('mediumDog').value.trim();
-    const bigDog = document.getElementById('bigDog').value.trim();
+    // var checkedCbs = document.querySelectorAll('.priceCheckOut input[type="checkbox"]:checked');
+    const smallDog = document.getElementById('smallDog').value.trim()
+    const mediumDog = document.getElementById('mediumDog').value.trim()
+    const bigDog = document.getElementById('bigDog').value.trim()
     const appointmentSubmit = document.getElementById('appointmentSubmit');
     const time = document.getElementById("time")
 
