@@ -23,14 +23,14 @@ Pet.belongsTo(Customer, {
 // });
 
 
-// Company.hasMany(Customer, {
-//   foreignKey: 'company_id',
-//   onDelete: 'CASCADE'
-// });
-// Customer.belongsTo(Company, {
-//   foreignKey: 'company_id',
-//   onDelete: 'CASCADE'
-// });
+Company.hasMany(Customer, {
+  foreignKey: 'company_id',
+  onDelete: 'CASCADE'
+});
+Customer.belongsTo(Company, {
+  foreignKey: 'company_id',
+  onDelete: 'CASCADE'
+});
 //------------------------------------
 //stick with singular or plural not both
 //------------------------------------

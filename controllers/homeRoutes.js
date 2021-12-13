@@ -7,20 +7,20 @@ const auth = require("../util/auth");
 router.get("/", async (req, res) => {
   console.log(req.session);
   try {
-    const appointmentData = await Appointment.findAll({
-      include: [
-        {
-          model: Customer,
-          attributes: ["first_name"],
-        },
-      ],
-    });
-    const appointments = appointmentData.map((appointment) =>
-      appointment.get({ plain: true })
-    );
+    // const appointmentData = await Appointment.findAll({
+    //   include: [
+    //     {
+    //       model: Customer,
+    //       attributes: ["first_name"],
+    //     },
+    //   ],
+    // });
+    // const appointments = appointmentData.map((appointment) =>
+    //   appointment.get({ plain: true })
+    // );
 
     res.render("homepage", {
-      appointments,
+      // appointments,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -47,25 +47,25 @@ router.get("/customerDashboard", async (req, res) => {
   }
 });
 
-router.get("/makeAppointments", async (req, res) => {
-  try {
-    const appointmentData = await Appointment.findAll({
-      include: [{ attributes: ["first_name"] }],
-    });
-    const appointments = appointmentData.map((appointment) =>
-      appointment.get({ plain: true })
-    );
+// router.get("/makeAppointment", async (req, res) => {
+//   try {
+//     const appointmentData = await Appointment.findAll({
+//       include: [{ attributes: ["first_name" ] }],
+//     });
+//     const appointments = appointmentData.map((appointment) =>
+//       appointment.get({ plain: true })
+//     );
 
-    res.render("makeAppointment", appointments,{
-    logged_in: req.session.logged_in,}),
-      {
-        appointments,
-        logged_in: req.session.logged_in,
-      };
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render("makeAppointment", appointments,{
+//     logged_in: req.session.logged_in,}),
+//       {
+//         appointments,
+//         logged_in: req.session.logged_in,
+//       };
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // router.get('/', async (req,res) => {
 //     try {
@@ -83,31 +83,33 @@ router.get("/makeAppointments", async (req, res) => {
 //     res.render('homepage' , customerData)
 // })
 
-router.get("/bookings/:id", async (req, res) => {
-  console.log("sid");
-  try {
-    const appointmentData = await Appointment.findByPk(req.params.id, {
-      include: [
-        {
-          model: Customer,
-        },
-        // {
-        //     model: Company,
-        //     attributes: ['id'],
-        // },
-      ],
-    });
-    const appointment = appointmentData.get({ plain: true });
-    console.log(appointment);
-    res.render("appointment", {
-      ...appointment,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+// router.get("/bookings/:id", async (req, res) => {
+//   console.log("sid");
+//   // try {
+//   //   const appointmentData = await Appointment.findAll(req.params.id, {
+//   //     include: [
+//   //       {
+//   //         model: Customer,
+//   //       },
+//   //       // {
+//   //       //     model: Company,
+//   //       //     attributes: ['id'],
+//   //       // },
+//   //     ],
+//   //   });
+//     // const appointment = appointmentData.get({ plain: true });
+//     // console.log(appointment);
+//     res.render("/makeAppointment", {
+//       ...appointment,
+//       logged_in: req.session.logged_in,
+//     });
+//   // } catch (err) {
+//   //   res.status(500).json(err);
+//   // }
+// });
+router.get("/makeAppointment", async (req, res) => {
+  res.render("makeAppointment");
 });
-
 router.get("/login", async (req, res) => {
   res.render("login");
 });
