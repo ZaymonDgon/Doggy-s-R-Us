@@ -2,8 +2,11 @@
 
 <div class="container">
 
+
     <h1 class="title is-2"><Strong>Here are upcoming appointments:</Strong></h1>
     <h2>{{#each appointments as |appointment|}}</h2>
+    <h2>{{appointment.time}}</h2>
+
 
     {{/each}}
 </div>

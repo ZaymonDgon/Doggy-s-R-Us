@@ -124,12 +124,15 @@ router.get("/thanks", async (req, res) => {
 
 router.get('/appointments', async (req,res) => {
   try {
-    const userAppointments = await Customer.findOne( {
+    const userAppointments = await Appointment.findAll( {
       where: {
-        email:req.session.email,
+        customer_id:req.params.id,
       }
+      
     })
-    res.render('appointments', userAppointments)
+    const project = userAppointments.get({ plain: true });
+    res.render('appointments')
+   
   } 
   catch (err) {
     res.status(400).json(err)

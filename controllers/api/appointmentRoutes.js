@@ -75,9 +75,9 @@ router.delete('/:id', async (req, res) => {
 router.get('/:id', auth, async (req, res) => {
   try {
     //
-    const appointmentData = await Appointment.findByPk({
+    const appointmentData = await Appointment.findAll({
       where: {
-        id: req.body.id,
+        // id: req.body.id,
         user_id: req.session.user_id,
       },
     });
