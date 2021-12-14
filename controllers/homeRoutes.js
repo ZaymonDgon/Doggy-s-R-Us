@@ -128,6 +128,7 @@ router.get('/appointments', async (req,res) => {
       where: {
         customer_id:req.params.id,
       }
+      console.log(userAppointments)
     })
     const project = userAppointments.get({ plain: true });
     res.render('appointments')
