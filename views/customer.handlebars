@@ -5,13 +5,16 @@
 
 <div class="container">
     <h1 class="title is-2 box"> Hi <Strong>{{first_name}} {{last_name}}</Strong></h1>
-    <h1 class="title is-3">make appointment for your pet?</h1>
-    <a class="title is-4" href="/makeAppointment">Click here to make an appointment</a>
-    <h1 class="title is-3">See all bookings</h1>
+    <h1 class="subtitle is-3">make appointment for your pet?</h1>
+    <a class=" button is-large" href="/makeAppointment">Click here to make an appointment</a>
+    <h1 class="subtitle is-3">See all bookings</h1>
     {{#each appointment as |appointment|}}
     {{/each}}
-    <a class="title is-4" href="/appointments">Click to edit or delete a booking</a>
-    <button id="logout">Click here to logout</button>
+    <a class="button is-large" href="/appointments">Click to edit or delete a booking</a>
+</div>
+
+<div class="container block">
+    <button class="button is-small" id="logout">Click here to logout</button>
 </div>
 <script src="./js/logout.js"></script>
 
