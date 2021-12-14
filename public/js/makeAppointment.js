@@ -81,7 +81,7 @@ const makeAppointmentFormHandler = async (event) => {
     } catch (e) {
         console.log("This is a promise catcher")
         console.log(e)
-=======
+
     if (smallDog && time ) {
         // Send a POST request to the API endpoint
         const response = await fetch('/api/appointment/makeAppointment', {
@@ -108,6 +108,6 @@ const makeAppointmentFormHandler = async (event) => {
 
     }
 
-}
+}}
 
 appointmentSubmit.addEventListener('click',makeAppointmentFormHandler )
