@@ -44,7 +44,7 @@ const makeAppointmentFormHandler = async (event) => {
         
             if (response.ok) {
                 window.location.href = '/thanks';
-                alert('Failed to create project');
+                // alert('Failed to create project');
             }
     
            
