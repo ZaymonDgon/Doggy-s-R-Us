@@ -1,13 +1,17 @@
-<h1> Hi <Strong>{{first_name}} {{last_name}}</Strong></h1>
-<h1>make appointment for your pet?</h1>
-<a href="/makeAppointment">Click here to make an appointment</a>
-<h1>See all bookings</h1>
-{{#each appointment as |appointment|}}
-{{/each}}
-<a href="/appointments">Click to edit or delete a booking</a>
-<button id="logout">Click here to logout</button>
-    <script src="./js/logout.js"></script>
 
+<section class="has-text-centered block">
+    <figure><img src="./images/doggo.png" alt="cute dog icon"></figure>
+</section>
 
-
+<div class="container">
+    <h1 class="title is-2 box"> Hi <Strong>{{first_name}} {{last_name}}</Strong></h1>
+    <h1 class="title is-3">make appointment for your pet?</h1>
+    <a class="title is-4" href="/makeAppointment">Click here to make an appointment</a>
+    <h1 class="title is-3">See all bookings</h1>
+    {{#each appointment as |appointment|}}
+    {{/each}}
+    <a class="title is-4" href="/appointments">Click to edit or delete a booking</a>
+    <button id="logout">Click here to logout</button>
+</div>
+<script src="./js/logout.js"></script>
 

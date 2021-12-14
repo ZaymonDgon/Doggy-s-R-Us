@@ -1,17 +1,18 @@
-header {
-    padding: 60px;
-    height: 150px;
+/* header{
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+} */
+body {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
 }
 div {
-    padding: 20px;
-}
-img {
-    padding: 1rem;
-}
-section {
-    height: 200px;
-};
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 
-.banner {
-    height: 150px;
+}
+.title {
+    background-image: linear-gradient( 109.6deg,  rgba(61,245,167,1) 11.2%, rgba(9,111,224,1) 91.1% );
 }

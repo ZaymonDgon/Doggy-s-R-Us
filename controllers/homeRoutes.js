@@ -117,6 +117,11 @@ router.get("/login", async (req, res) => {
 router.get("/signup", async (req, res) => {
   res.render("signUp");
 });
+
+router.get("/thanks", async (req, res) => {
+  res.render("thanks");
+});
+
 router.get('/appointments', async (req,res) => {
   try {
     const userAppointments = await Customer.findOne( {
