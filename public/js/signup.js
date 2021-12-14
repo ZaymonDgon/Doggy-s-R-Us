@@ -55,7 +55,10 @@ const petStr= JSON.stringify(petData)
         .then((response) => response.json())
         .then((data) => {
           console.log("Success:", data);
+        window.location.href = `/customer`;
+
           window.location.href = `/customerDashboard`;
+
         })
         .catch((error) => {
           console.error("Error:", error);

@@ -25,13 +25,13 @@ Appointment.init(
     },
     //----------BYE----------
 
-    // company_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "company",
-    //     key: "id",
-    //   },
-    // },
+    company_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "company",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
